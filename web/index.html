@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>kmdw.dev</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="layout">
+            <img src="/sakura-l.gif" alt="Tree 1" />
+            <main>
+                <h1>Welcome to <span class="hl">kmdw.dev</span>!</h1>
+                <p>
+                    This is my personal server. Most of my frontend-only
+                    projects live here for the world to see, but only a few of
+                    the ones with backends are public.
+                </p>
+                <h2>Projects</h2>
+                <h3>Fullstack</h3>
+                <ul>
+                    <li>
+                        <a href="https://pbb.kmdw.dev/">pbb</a>: Create and edit
+                        "billboards" in realtime with friends.
+                    </li>
+                    <li>
+                        <a href="https://mqm.kmdw.dev/">Mapquizmaker</a>: Create
+                        maps and quiz yourself on them. You can also upload them
+                        to share them with friends.
+                    </li>
+                </ul>
+                <h3>Static</h3>
+                <ul>
+                    <li>
+                        <a href="https://s.kmdw.dev/tracing/">Tracing</a>: Load
+                        images to trace for your art practice. Made with
+                        Sveeeelte
+                    </li>
+                    <li>
+                        <a href="https://s.kmdw.dev/slope/">Slope mirror</a>:
+                        Ad-free Slope 1.2.4 mirror.
+                    </li>
+                    <li>
+                        <a href="https://s.kmdw.dev/ttbls/">TTBLS</a>: Times
+                        tables learning tool.
+                    </li>
+                    <li>
+                        <a href="https://s.kmdw.dev/robo-sched/">robo sched</a>:
+                        Small week-long calendar creator.
+                    </li>
+                    <li>
+                        <a href="https://s.kmdw.dev/codeeditor/">code editor</a
+                        >: A simple code editor for TypeScript built with Shiki
+                        with tabbed editing and syntax highlighting.
+                    </li>
+                    <li>
+                        <a href="https://s.kmdw.dev/cornellnotes/">
+                            Cornell Notes Maker</a
+                        >: An app for making cornell notes for school.
+                    </li>
+                    <li>
+                        <a href="https://s.kmdw.dev/time/">Clock</a>: A digital
+                        clock.
+                    </li>
+                </ul>
+                <h2>About me</h2>
+                <p>
+                    I am a fullstack web dev, mainly with Python on the backend.
+                    I enjoy using Svelte on the frontend.
+                </p>
+                <p>
+                    I am on FRC team 4778 (where I am the programming lead) and
+                    FTC team 9415. https://chanrobotics.org/
+                </p>
+                <p>
+                    I would like to get into more low-level programming in the
+                    future, and so far I have done a little bit of C/C++.
+                </p>
+                <p>
+                    You can contact me at kalilamodow@gmail.com or kmdw on
+                    Discord. Have a nice day!
+                </p>
+                <footer>
+                    Last updated March 16, 2026
+                    <br />
+                    <a href="https://github.com/Kalilamodow">
+                        <img
+                            src="/GitHub_Invertocat_White_Clearspace.svg"
+                            alt="GitHub"
+                            height="48"
+                        />
+                    </a>
+                </footer>
+            </main>
+            <img
+                src="/sakura-l.gif"
+                alt="Tree 2"
+                id="delay-gif"
+                style="transform: scaleX(-1)"
+            />
+        </div>
+    </body>
+
+    <script>
+        setTimeout(
+            () =>
+                (document.getElementById("delay-gif").src =
+                    "/sakura-l.gif?t=blah"),
+            1500,
+        );
+    </script>
+</html>
