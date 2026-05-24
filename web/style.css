@@ -3,10 +3,57 @@
 :root {
     font-family: "Nunito", sans-serif;
     background-color: black;
+
+    --foreground-primary: #eee;
+    --foreground-muted: #aaa;
+    --border: #fff2;
+
+    --blur-amount: 32px;
+    --main-bg: #000b;
 }
 
-span.hl,
-a {
+body {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    inset: -4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background-image: url("/sakura-l.gif");
+    background-position: center;
+    background-size: cover;
+    image-rendering: pixelated;
+
+    transform: scale(1.25);
+}
+
+main {
+    backdrop-filter: blur(var(--blur-amount));
+    background-color: var(--main-bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    width: clamp(0px, 80vw, 600px);
+    height: clamp(0px, 90svh, 800px);
+
+    padding: 16px 32px;
+    color: var(--foreground-primary);
+
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #847 #0000;
+}
+
+h1, a {
     background-image: linear-gradient(to right, #e6a, #fac);
     background-clip: text;
     -webkit-background-clip: text;
@@ -14,55 +61,7 @@ a {
     -webkit-text-fill-color: transparent;
 }
 
-a {
-    transition: filter 150ms;
-}
-
-a:hover {
-    filter: brightness(150%);
-}
-
-div.layout {
-    position: fixed;
-    inset: 0;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-}
-
-div.layout > img {
-    height: 100vh;
-    image-rendering: pixelated;
-    margin-top: -32px;
-}
-
-main {
-    color: #eeeeee;
-    max-width: 80ch;
-    width: 100%;
-    padding: 16px;
-    margin: 0 auto;
-    overflow: auto;
-    height: calc(100vh - 32px);
-    z-index: 1;
-    background-color: black;
-
-    scrollbar-width: auto;
-    scrollbar-color: #847 black;
-}
-
 footer {
-    color: #aaa;
+    color: var(--foreground-muted);
     text-align: center;
-    margin: 32px 0;
-    margin-bottom: 0;
-}
-
-@media screen and (max-width: 920px) {
-    div.layout > img:last-child {
-        display: none;
-    }
-}
-
-ul > li > a {
-    font-weight: bold;
 }
