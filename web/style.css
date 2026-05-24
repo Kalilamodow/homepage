@@ -37,7 +37,13 @@ body::before {
     transform: scale(1.25);
 }
 
+body.scrolling {
+    user-select: none;
+}
+
 main {
+    position: relative;
+
     backdrop-filter: blur(var(--blur-amount));
     background-color: var(--main-bg);
     border: 1px solid var(--border);
@@ -48,13 +54,13 @@ main {
     padding: 16px 32px;
     color: var(--foreground-primary);
 
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #847 #0000;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 
-h1, a {
-    background-image: linear-gradient(to right, #e6a, #fac);
+h1,
+a {
+    background-image: linear-gradient(45deg, #e6a, #fac);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -64,4 +70,16 @@ h1, a {
 footer {
     color: var(--foreground-muted);
     text-align: center;
+}
+
+#scrollbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 16px;
+    width: 8px;
+    height: 32px;
+    background-image: linear-gradient(45deg, #e6a, #fac);
+    border-radius: 24px;
+    touch-action: none;
 }
