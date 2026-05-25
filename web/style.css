@@ -51,6 +51,8 @@ main {
     width: clamp(0px, 80vw, 600px);
     height: clamp(0px, 90svh, 800px);
 
+    box-shadow: 0 0 4px #0008;
+
     padding: 16px 32px;
     color: var(--foreground-primary);
 
