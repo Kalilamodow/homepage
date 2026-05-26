@@ -95,9 +95,12 @@ a.project-panel {
     text-decoration: none;
     color: var(--foreground-primary);
 
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 8px;
+
+    overflow: clip;
 
     box-shadow: 0 0 16px 2px #0002;
     transition:
@@ -118,6 +121,26 @@ a.project-panel:hover {
 
 a.project-panel * {
     margin: 0px;
+}
+
+a.project-panel img {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    object-position: left center;
+
+    z-index: -1;
+    mask-image: linear-gradient(to left, #fac8, transparent);
+
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
+a.project-panel:hover img {
+    opacity: 80%;
 }
 
 footer {
