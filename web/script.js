@@ -63,6 +63,9 @@ function createScrollbar(scrollbar, container) {
         isDragging = false;
         bodyScroll.release();
     });
+
+    const resizeObserver = new ResizeObserver(() => reposition());
+    resizeObserver.observe(container);
 }
 
 createScrollbar(
