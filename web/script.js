@@ -28,19 +28,20 @@ class ScrollRc {
 }
 
 const bodyScroll = new ScrollRc(document.body);
+const SCROLLBAR_OFFSET = 16;
 
 function createScrollbar(scrollbar, container) {
     function reposition() {
+        const trackHeight = container.scrollHeight;
+        const viewHeight = container.clientHeight;
+        const scrollbarHeight = (viewHeight / trackHeight) * viewHeight;
+        scrollbar.style.height = inPx(scrollbarHeight - SCROLLBAR_OFFSET * 2);
+
         const box = container.getBoundingClientRect();
-        const scroll = container.scrollTop;
+        const handleOffset = (container.scrollTop / trackHeight) * viewHeight;
+        scrollbar.style.top = inPx(handleOffset + box.top + SCROLLBAR_OFFSET);
 
         scrollbar.style.right = inPx(box.right - box.width);
-        scrollbar.style.top = inPx(box.top + scroll);
-
-        const maxScroll = container.scrollHeight;
-        const currentHeight = container.clientHeight;
-        const scrollbarHeight = (currentHeight / maxScroll) * currentHeight;
-        scrollbar.style.height = inPx(scrollbarHeight - 128);
     }
 
     reposition();
@@ -54,7 +55,8 @@ function createScrollbar(scrollbar, container) {
 
     window.addEventListener("pointermove", (evt) => {
         if (!isDragging) return;
-        container.scrollTop += evt.movementY;
+        const ratio = container.scrollHeight / container.clientHeight;
+        container.scrollTop += evt.movementY * ratio;
     });
 
     window.addEventListener("pointerup", () => {
@@ -63,6 +65,9 @@ function createScrollbar(scrollbar, container) {
         isDragging = false;
         bodyScroll.release();
     });
+
+    const resizeObserver = new ResizeObserver(() => reposition());
+    resizeObserver.observe(container);
 }
 
 createScrollbar(

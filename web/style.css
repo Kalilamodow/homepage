@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
 
 :root {
     font-family: "Nunito", sans-serif;
@@ -6,10 +7,12 @@
 
     --foreground-primary: #eee;
     --foreground-muted: #aaa;
-    --border: #fff2;
+    --border-main: #fde3;
+    --border-muted: #fff1;
+    --border-muted-more: #8882;
 
-    --blur-amount: 32px;
-    --main-bg: #000b;
+    --blur-amount: 48px;
+    --main-bg: #0008;
 }
 
 body {
@@ -46,7 +49,7 @@ main {
 
     backdrop-filter: blur(var(--blur-amount));
     background-color: var(--main-bg);
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-main);
     border-radius: 24px;
     width: clamp(0px, 80vw, 600px);
     height: clamp(0px, 90svh, 800px);
@@ -61,12 +64,85 @@ main {
 }
 
 h1,
-a {
+h2,
+h4 {
+    font-family: Lexend;
+}
+
+h1 {
+    letter-spacing: 1px;
+}
+
+h1,
+a,
+a.project-panel > h4 {
     background-image: linear-gradient(45deg, #e6a, #fac);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
+}
+
+a.project-panel {
+    background-image: none;
+    background-clip: unset;
+    -webkit-text-fill-color: unset;
+
+    background-color: #fff1;
+    border: 1px solid var(--border-muted);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 16px;
+
+    text-decoration: none;
+    color: var(--foreground-primary);
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    overflow: clip;
+
+    box-shadow: 0 0 16px 2px #0002;
+    transition:
+        transform 150ms,
+        background-color 250ms,
+        filter 250ms,
+        box-shadow 250ms,
+        border-color 150ms;
+}
+
+a.project-panel:hover {
+    transform: translateY(-1px);
+    background-color: #e8a2;
+    box-shadow: 0 0 16px 2px #e8a2;
+    filter: brightness(115%);
+    border-color: var(--border-muted-more);
+}
+
+a.project-panel * {
+    margin: 0px;
+}
+
+a.project-panel img {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    object-position: left center;
+
+    z-index: -1;
+    mask-image: linear-gradient(to left, #fac8, transparent);
+
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
+a.project-panel:hover img {
+    opacity: 80%;
 }
 
 footer {
@@ -78,17 +154,17 @@ footer {
     position: fixed;
     top: 0;
     right: 0;
-    margin: 16px;
+    margin-right: 16px;
     width: 8px;
     height: 32px;
     background-image: linear-gradient(45deg, #e6a, #fac);
     border-radius: 24px;
     touch-action: none;
-    opacity: 50%;
-    transition: opacity 50ms;
+
+    opacity: 30%;
+    transition: opacity 150ms;
 }
 
-#scrollbar:hover,
-body.scrolling > #scrollbar {
-    opacity: 75%;
+#scrollbar:hover {
+    opacity: 80%;
 }
