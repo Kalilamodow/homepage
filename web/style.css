@@ -145,6 +145,50 @@ a.project-panel:hover img {
     opacity: 80%;
 }
 
+div.tags {
+    margin-top: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+div.tags span {
+    display: block;
+    font-size: 0.8em;
+    padding: 4px 8px;
+    border-radius: 20px;
+    color: var(--foreground-muted);
+    background-color: #fff1;
+    border: 1px solid var(--border-muted-more);
+
+    transition: color 250ms;
+
+    &.vue {
+        background-color: #0f01;
+        border-color: #0f04;
+    }
+
+    &.yuck {
+        background-color: #8441;
+        border-color: #8444;
+    }
+
+    &.sv {
+        background-color: #f001;
+        border-color: #f002;
+    }
+
+    &.react {
+        background-color: #08f1;
+        border-color: #08f4;
+    }
+}
+
+a.project-panel:hover div.tags span {
+    color: var(--foreground-primary);
+}
+
 footer {
     color: var(--foreground-muted);
     text-align: center;
