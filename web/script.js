@@ -68,6 +68,7 @@ function createScrollbar(scrollbar, container) {
 
     const resizeObserver = new ResizeObserver(() => reposition());
     resizeObserver.observe(container);
+    window.addEventListener("resize", () => reposition());
 }
 
 createScrollbar(
