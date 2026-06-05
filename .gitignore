@@ -1,2 +1,4 @@
 *.sh
 .venv
+node_modules/
+dist/

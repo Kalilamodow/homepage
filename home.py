@@ -16,7 +16,7 @@ class E404Handler(tornado.web.RequestHandler):
             self.write(file.read())
 
 
-options = {"debug": True, "default_handler_class": E404Handler, "static_path": "web"}
+options = {"debug": True, "default_handler_class": E404Handler}
 
 
 async def main():
@@ -26,7 +26,7 @@ async def main():
             (
                 r"/(.*)",
                 tornado.web.StaticFileHandler,
-                {"path": "web", "default_filename": "index.html"},
+                {"path": "dist", "default_filename": "index.html"},
             ),
         ],
         **options,
