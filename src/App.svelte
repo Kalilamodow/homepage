@@ -92,8 +92,12 @@
   </p>
   <h2>About me</h2>
   <p>
-    I am a fullstack web dev, mainly with Python on the backend. I enjoy using
-    Svelte on the frontend.
+    I've mostly done fullstack webdev with Python on the backend, with my
+    favorite frontend being Svelte. I have started to get into native
+    development though, especially with C++ (check out <a
+      href="https://github.com/Kalilamodow/minispot">minispot</a
+    >) and Rust (check out
+    <a href="https://github.com/Kalilamodow/lobby-ranks">lobby-ranks</a>).
   </p>
   <p>
     I am on FRC team 4778 (where I am the programming lead) and FTC team 9415.
